@@ -37,7 +37,7 @@ Stack<T>::Stack(std::initializer_list<T> list)
 template <typename T>
 Stack<T>::Stack(const Stack<T>& obj)
 {
-	if (this->m_ptr != &obj) {
+	if (this->m_ptr != obj.m_ptr) {
 		this->m_size = obj.m_size;
 		this->m_capacity = obj.m_capacity;
 		this->m_ptr = new T[obj.m_capacity];
@@ -52,7 +52,7 @@ Stack<T>::Stack(const Stack<T>& obj)
 template <typename T>
 Stack<T>::Stack(Stack<T>&& obj)
 {
-	if (this->m_ptr != &obj) {
+	if (this->m_ptr != obj.m_ptr) {
 		this->m_size = obj.m_size;
 		this->m_capacity = obj.m_capacity;
 		this->m_ptr = obj.m_ptr;
@@ -181,7 +181,7 @@ void Stack<T>::swap(my::Stack<T>& obj)
 template<typename T>
 void Stack<T>::operator=(const my::Stack<T>& obj)
 {
-	if (this->m_ptr != &obj) {
+	if (this->m_ptr != obj.m_ptr) {
 		this->m_size = obj.m_size;
 		this->m_capacity = obj.m_capacity;
 		this->m_ptr = new T[obj.m_capacity];
@@ -195,7 +195,7 @@ void Stack<T>::operator=(const my::Stack<T>& obj)
 template<typename T>
 void Stack<T>::operator=(my::Stack<T>&& obj)
 {
-	if (this->m_ptr != &obj) {
+	if (this->m_ptr != obj.m_ptr) {
 		this->m_size = obj.m_size;
 		this->m_capacity = obj.m_capacity;
 		this->m_ptr = obj.m_ptr;
